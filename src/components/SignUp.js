@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
 import '../styles/style.css'
 import Spinner from './Spinner';
+import { useNavigate } from 'react-router-dom'
 
 function SignUp() {
+    const navigate = useNavigate()
     // credentials and otp value
     const [emailVal, setemailVal] = useState('')
     const [nameVal, setnameVal] = useState('')
@@ -107,7 +109,7 @@ function SignUp() {
                 </div>
 
                 {l1 ? <Spinner></Spinner> : <div className='btn-bar'>
-                    <button className='btn'>Cancel</button>
+                    <button className='btn' onClick={()=>{navigate('/')}}>Cancel</button>
                     <button className='btn' disabled={db1} onClick={createAccount}>Create Account</button>
                 </div>}
             </div>
@@ -126,7 +128,7 @@ function SignUp() {
                 </div>
 
                 {l2 ? <Spinner></Spinner> :<div className='btn-bar'>
-                    <button className='btn'>Cancel</button>
+                    <button className='btn' onClick={()=>{navigate('/')}}>Cancel</button>
                     <button className='btn' disabled={db2} onClick={verify}>Verify</button>
                 </div>}
             </div>
