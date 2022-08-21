@@ -1,9 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import '../styles/style.css'
 import Spinner from './Spinner'
 import { useNavigate } from 'react-router-dom'
 
 function LogIn() {
+    const loggedIn = localStorage.getItem('authToken');
     const navigate = useNavigate()
     // credentials value
     const [emailVal, setemailVal] = useState('')
@@ -40,6 +41,13 @@ async function logIn(e){
       setl1(false);
     }
 }
+
+useEffect(() => {
+  if(loggedIn){
+    navigate('/account')
+  }
+}, [loggedIn, navigate])
+
     return (
         <>
             <div className='container'>

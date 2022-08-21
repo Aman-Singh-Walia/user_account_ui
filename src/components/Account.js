@@ -10,6 +10,8 @@ function Account() {
     const [currentPassVal, setcurrentPassVal] = useState('')
     const [newPassVal, setnewPassVal] = useState('')
     const [confirmNewPassVal, setconfirmNewPassVal] = useState('')
+    // show or hide password
+    const [visible, setvisible] = useState(false)
     // current form
     const [currentForm, setcurrentForm] = useState('info')
     const [loggedInUser, setloggedInUser] = useState({email:'',name:''})
@@ -140,23 +142,23 @@ function Account() {
 
                 <div className='sub-container'>
                     <label className='form-input-label'>Current Password</label>
-                    <input className='form-input' type="password" onInput={(e)=>{setcurrentPassVal(e.target.value)}}/>
+                    <input className='form-input' type={visible ? 'text' :'password'} onInput={(e)=>{setcurrentPassVal(e.target.value)}}/>
                 </div>
 
                 <div className='sub-container'>
                     <label className='form-input-label'>New Password</label>
-                    <input className='form-input' type="password" onInput={(e)=>{setnewPassVal(e.target.value)}}/>
+                    <input className='form-input' type={visible ? 'text' :'password'} onInput={(e)=>{setnewPassVal(e.target.value)}}/>
                 </div>
 
                 <div className='sub-container'>
                     <label className='form-input-label'>Confirm New Password</label>
-                    <input className='form-input' type="password" onInput={(e)=>{setconfirmNewPassVal(e.target.value)}}/>
+                    <input className='form-input' type={visible ? 'text' :'password'} onInput={(e)=>{setconfirmNewPassVal(e.target.value)}}/>
                 </div>
 
                 <div className='sub-container'>
                     <div>
                     <label className='form-input-label'>Show Password</label>
-                    <input className='form-input' type="checkbox" />
+                    <input className='form-input' type="checkbox" onInput={()=>{setvisible(!visible)}}/>
                     </div>
                 </div>
 
