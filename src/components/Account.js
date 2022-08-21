@@ -118,6 +118,7 @@ function Account() {
                 </div>
 
                 <div className='btn-bar'>
+                <button className='btn' onClick={()=>{navigate('/')}}>Home</button>
                     <button className='btn' onClick={logOut}>Log Out</button>
                     <button className='btn' onClick={()=>{setcurrentForm('manage')}}>Edit</button>
                 </div>
